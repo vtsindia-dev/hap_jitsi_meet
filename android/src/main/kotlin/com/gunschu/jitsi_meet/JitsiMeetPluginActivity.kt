@@ -85,7 +85,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
 
     override fun onConferenceTerminated(data: HashMap<String, Any>) {
 
-        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetPluginActivity.onConferenceTerminated: %s", data))
+        Log.d(JITSI_PLUGIN_TAG, String.format("sdbkjzsdjhfjhdfjhjh.onConferenceTerminated: %s", data))
         JitsiMeetEventStreamHandler.instance.onConferenceTerminated(data)
         super.onConferenceTerminated(data)
     }
