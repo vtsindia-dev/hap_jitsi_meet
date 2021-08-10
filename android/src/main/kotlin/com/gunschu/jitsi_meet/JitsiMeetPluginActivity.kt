@@ -27,7 +27,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                 action = "org.jitsi.meet.CONFERENCE"
                 putExtra("JitsiMeetConferenceOptions", options)
             }
-            context?.startActivity(intent)
+            context?.startActivity(new Intent(this, JitsiMeetActivity.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
         }
     }
 
