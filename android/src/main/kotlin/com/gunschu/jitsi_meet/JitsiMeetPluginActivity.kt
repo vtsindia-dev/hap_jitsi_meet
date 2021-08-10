@@ -27,7 +27,8 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                 action = "org.jitsi.meet.CONFERENCE"
                 putExtra("JitsiMeetConferenceOptions", options)
             }
-            context?.startActivity(new Intent(this, JitsiMeetActivity.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+            context?.startActivity(new Intent(this, JitsiMeetActivity.getJitsiView().enterPictureInPicture()).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+            enterPictureInPicture()
         }
     }
 
@@ -44,6 +45,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         }
 
         if (isInPictureInPictureMode == false && onStopCalled) {
+            print('JitsiMeetActivity print content')
             // Picture-in-Picture mode has been closed, we can (should !) end the call
             getJitsiView().leave()
         }
