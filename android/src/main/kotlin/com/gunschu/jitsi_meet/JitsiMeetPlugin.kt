@@ -128,7 +128,7 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
 
         // Set meeting options
         optionsBuilder
-                .setServerURL("https://meet.jit.si")
+                .setServerURL(serverURL)
                 .setRoom(room)
                 .setSubject(call.argument("subject"))
                 .setToken(call.argument("token"))
