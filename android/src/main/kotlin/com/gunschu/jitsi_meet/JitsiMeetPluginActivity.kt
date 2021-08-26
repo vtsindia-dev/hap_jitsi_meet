@@ -33,9 +33,9 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
 
     var onStopCalled: Boolean = false;
 
-    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration?) {
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean = true, newConfig: Configuration?) {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
-        JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+        
         if (isInPictureInPictureMode){
             JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
         }
