@@ -33,7 +33,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
 
     var onStopCalled: Boolean = false;
 
-    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean = true, newConfig: Configuration?) {
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration?) {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
 
         if (isInPictureInPictureMode){
@@ -73,6 +73,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetPluginActivity.onConferenceWillJoin: %s", data))
         JitsiMeetEventStreamHandler.instance.onConferenceWillJoin(data)
         super.onConferenceWillJoin(data)
+        JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
     }
 
     override fun onConferenceJoined(data: HashMap<String, Any>) {
