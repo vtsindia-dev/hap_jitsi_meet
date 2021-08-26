@@ -73,6 +73,7 @@ class JitsiMeet {
   }
 
   static closeMeeting() => JitsiMeetPlatform.instance.closeMeeting();
+  static deleteMeeting() => JitsiMeetPlatform.instance.closeMeeting();
 
   /// Adds a JitsiMeetingListener that will broadcast conference events
   static addListener(JitsiMeetingListener jitsiMeetingListener) {
