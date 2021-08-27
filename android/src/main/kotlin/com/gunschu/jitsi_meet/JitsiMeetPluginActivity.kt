@@ -95,7 +95,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         turnScreenOnAndKeyguardOff();
         enterPictureInPictureMode(
                 Builder()
-                        .setAspectRatio(Rational(10, 16))
+                        .setAspectRatio(Rational(16, 16))
                         .build()
         )
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
