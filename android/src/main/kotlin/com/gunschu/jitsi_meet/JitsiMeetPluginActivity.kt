@@ -93,11 +93,10 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
-        enterPictureInPictureMode(
-                new PictureInPictureParams.Builder()
-                        .setAspectRatio(new Rational(10, 10))
-                        .build()
-        );
+        PictureInPictureParams params = new PictureInPictureParams.Builder()
+            .setAspectRatio(new Rational(16,16))
+            .build();
+        enterPictureInPictureMode(params);
     }
 
     override fun onDestroy() {
