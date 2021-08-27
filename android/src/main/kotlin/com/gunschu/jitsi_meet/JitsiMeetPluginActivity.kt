@@ -93,7 +93,11 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();
-        enterPictureInPictureMode();
+        enterPictureInPictureMode(
+                Builder()
+                        .setAspectRatio(Rational(10, 16))
+                        .build()
+        )
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
     }
 
