@@ -31,10 +31,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             }
             context?.startActivity(intent)
         }
-    }
-
-    var aspectRatio = new Rational(10,10);
-    PictureInPictureParams params = new PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build();
+    }    
 
     var onStopCalled: Boolean = false;
 
@@ -96,8 +93,8 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();
+        enterPictureInPictureMode();
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
-        enterPictureInPictureMode(params);
     }
 
     override fun onDestroy() {
