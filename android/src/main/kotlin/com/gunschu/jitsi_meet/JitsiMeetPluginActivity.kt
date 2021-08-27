@@ -68,6 +68,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         onStopCalled = false
         registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE))
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+        enterPictureInPictureMode()
     }
 
     override fun onConferenceWillJoin(data: HashMap<String, Any>) {
