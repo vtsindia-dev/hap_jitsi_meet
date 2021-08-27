@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.res.Configuration
+import android.app.PictureInPictureParams;
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -92,9 +93,11 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
-        enterPictureInPictureMode(PictureInPictureParams.Builder()
-            .setAspectRatio(Rational(3, 3))
-            .build())
+        enterPictureInPictureMode(
+                new PictureInPictureParams.Builder()
+                        .setAspectRatio(new Rational(10, 10))
+                        .build()
+        );
     }
 
     override fun onDestroy() {
