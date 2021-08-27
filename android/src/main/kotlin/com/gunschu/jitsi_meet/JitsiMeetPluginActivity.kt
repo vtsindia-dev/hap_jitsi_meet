@@ -67,8 +67,6 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         super.onResume()
         onStopCalled = false
         registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE))
-        JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
-        enterPictureInPictureMode()
     }
 
     override fun onConferenceWillJoin(data: HashMap<String, Any>) {
@@ -93,6 +91,8 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();
+        JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+        enterPictureInPictureMode()
     }
 
     override fun onDestroy() {
