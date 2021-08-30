@@ -100,6 +100,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .build()
         )
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+        startScreenSharing = true
     }
 
     override fun onDestroy() {
