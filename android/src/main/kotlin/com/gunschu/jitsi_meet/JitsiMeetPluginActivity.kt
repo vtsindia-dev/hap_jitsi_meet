@@ -100,7 +100,6 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .build()
         )
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
-        startScreenSharing = true
     }
 
     override fun onDestroy() {
@@ -126,6 +125,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                     or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
                     or WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)
         }
+        startScreenSharing(true)
     }
 
     private fun turnScreenOffAndKeyguardOn() {
