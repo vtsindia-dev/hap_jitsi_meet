@@ -76,6 +76,7 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
         const val JITSI_METHOD_CHANNEL = "jitsi_meet"
         const val JITSI_EVENT_CHANNEL = "jitsi_meet_events"
         const val JITSI_MEETING_CLOSE = "JITSI_MEETING_CLOSE"
+        const val TOGGLE_SCREEN_SHARE = "TOGGLE_SCREEN_SHARE"
     }
 
     /**
@@ -170,7 +171,6 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
     private fun toggleShareScreen(call: MethodCall, result: Result) {
         val intent = Intent(TOGGLE_SCREEN_SHARE)
         activity?.sendBroadcast(intent)
-        activity?.startScreenSharing = true
         result.success(null)
     }
 
