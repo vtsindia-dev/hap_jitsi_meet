@@ -12,6 +12,7 @@ import android.app.PictureInPictureParams.Builder
 import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.FrameLayout.LayoutParams
+import android.widget.LinearLayout.LayoutParams
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -103,7 +104,8 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                 Builder()
                         .setAspectRatio(Rational(16, 16))
                         .build()
-        ).setLayoutParams(params);
+        )
+        linearLayout.setLayoutParams(params)
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
     }
 
