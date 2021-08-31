@@ -79,6 +79,7 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
         const val TOGGLE_SCREEN_SHARE = "TOGGLE_SCREEN_SHARE"
     }
 
+
     /**
      * MethodCallHandler interface implementations
      */

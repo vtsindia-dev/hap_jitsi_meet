@@ -16,6 +16,7 @@ import android.view.WindowManager
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
+import org.jitsi.meet.sdk.TOGGLE_SCREEN_SHARE
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
 
 /**
@@ -59,6 +60,13 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             }
         }
     }
+    private val myShareReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            when (intent?.action) {
+                TOGGLE_SCREEN_SHARE -> finish()
+            }
+        }
+    }
 
     override fun onStop() {
         super.onStop()
@@ -70,6 +78,11 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         super.onResume()
         onStopCalled = false
         registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE))
+    }
+
+    override fun onShareScreen() {
+        super.onShareScreen()
+        registerReceiver(myShareReceiver, IntentFilter(TOGGLE_SCREEN_SHARE))
     }
 
     override fun onConferenceWillJoin(data: HashMap<String, Any>) {
