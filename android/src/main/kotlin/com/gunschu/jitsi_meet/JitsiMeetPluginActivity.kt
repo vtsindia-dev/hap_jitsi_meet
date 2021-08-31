@@ -9,7 +9,9 @@ import android.content.res.Configuration
 import android.util.Rational
 import android.app.PictureInPictureParams
 import android.app.PictureInPictureParams.Builder
-import android.widget.LinearLayout
+import android.view.Gravity
+import android.widget.FrameLayout
+import android.widget.FrameLayout.LayoutParams
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -95,13 +97,13 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();
-        val layoutParams: LinearLayout.LayoutParams = LayoutParams(width, height)
-        layoutParams.gravity = Gravity.TOP|Gravity.CENTER
+        val params: FrameLayout.LayoutParams = LayoutParams(400, 400)
+        params.gravity = Gravity.TOP or Gravity.RIGHT
         enterPictureInPictureMode(
                 Builder()
                         .setAspectRatio(Rational(16, 16))
                         .build()
-        ).setLayoutParams(layoutParams);
+        ).setLayoutParams(params);
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
     }
 
