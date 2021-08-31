@@ -16,7 +16,7 @@ import android.view.WindowManager
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
-import org.jitsi.meet.sdk.TOGGLE_SCREEN_SHARE
+import org.jitsi.meet.TOGGLE_SCREEN_SHARE
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
 
 /**
