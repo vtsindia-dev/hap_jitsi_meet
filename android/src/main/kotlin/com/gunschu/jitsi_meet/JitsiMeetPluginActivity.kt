@@ -10,6 +10,7 @@ import android.util.Rational
 import android.app.PictureInPictureParams
 import android.app.PictureInPictureParams.Builder
 import android.view.Gravity
+import android.widget.LinearLayout
 import android.widget.FrameLayout
 import android.widget.FrameLayout.LayoutParams
 import android.os.Build
