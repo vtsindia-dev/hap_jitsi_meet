@@ -12,7 +12,6 @@ import android.app.PictureInPictureParams.Builder
 import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.FrameLayout.LayoutParams
-import android.widget.LinearLayout.LayoutParams
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
