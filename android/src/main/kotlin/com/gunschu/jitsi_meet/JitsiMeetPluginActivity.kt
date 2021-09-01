@@ -44,6 +44,11 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
         }
         else {
+            enterPictureInPictureMode(
+                    Builder()
+                            .setAspectRatio(Rational(16, 16))
+                            .build()
+            )
             JitsiMeetEventStreamHandler.instance.onPictureInPictureTerminated()
         }
 
@@ -99,7 +104,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                 Builder()
                         .setAspectRatio(Rational(16, 16))
                         .build()
-        ).setGravity(Gravity.TOP)
+        )
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
     }
 
