@@ -170,9 +170,11 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
     }
 
     private fun toggleShareScreen(call: MethodCall, result: Result) {
-        val intent = Intent(TOGGLE_SCREEN_SHARE)
+//        val intent = Intent(TOGGLE_SCREEN_SHARE)
+        val intent = Intent(BroadcastAction.Type.TOGGLE_SCREEN_SHARE.getAction())
+        intent.putExtra("enabled", enabled)
         activity?.sendBroadcast(intent)
-        result.success(null)
+        result.success('screen shared')
     }
 
     /**
