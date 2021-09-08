@@ -14,6 +14,10 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
+import android.view.Gravity
+import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.LinearLayout.LayoutParams
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
@@ -101,6 +105,19 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .build()
         )
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+        val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            weight = 1.0f
+            gravity = Gravity.TOP
+        }
+        linearLayout.setGravity(Gravity.CENTER);
+
+        // the LinearLayout's parent is a FrameLayout
+        val params: FrameLayout.LayoutParams = LayoutParams(100, 100)
+        params.gravity = Gravity.TOP or Gravity.CENTER
+        linearLayout.setLayoutParams(params)
     }
 
     override fun onDestroy() {
@@ -119,7 +136,8 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             keyguardManager?.requestDismissKeyguard(this, null)
         } else {
             // For older versions, do it as you did before.
-            window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                    or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                     or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                     or WindowManager.LayoutParams.FLAG_FULLSCREEN
                     or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
@@ -134,7 +152,8 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             setTurnScreenOn(false)
         } else {
             window.clearFlags(
-                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                            or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                             or WindowManager.LayoutParams.FLAG_FULLSCREEN
                             or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                             or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
