@@ -110,7 +110,6 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             weight = 1.0f
             gravity = Gravity.TOP
         }
-        launchActivity().setLayoutParams(params);
     }
 
     override fun onDestroy() {
