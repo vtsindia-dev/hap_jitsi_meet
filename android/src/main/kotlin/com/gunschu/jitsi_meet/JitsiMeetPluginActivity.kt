@@ -129,8 +129,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             keyguardManager?.requestDismissKeyguard(this, null)
         } else {
             // For older versions, do it as you did before.
-            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                    or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+            window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                     or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                     or WindowManager.LayoutParams.FLAG_FULLSCREEN
                     or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
@@ -145,8 +144,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             setTurnScreenOn(false)
         } else {
             window.clearFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                            or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                             or WindowManager.LayoutParams.FLAG_FULLSCREEN
                             or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                             or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
