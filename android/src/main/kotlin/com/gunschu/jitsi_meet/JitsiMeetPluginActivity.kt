@@ -14,8 +14,6 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
-import android.view.Gravity
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
@@ -112,12 +110,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             weight = 1.0f
             gravity = Gravity.TOP
         }
-        linearLayout.setGravity(Gravity.CENTER);
-
-        // the LinearLayout's parent is a FrameLayout
-        val params: FrameLayout.LayoutParams = LayoutParams(100, 100)
-        params.gravity = Gravity.TOP or Gravity.CENTER
-        linearLayout.setLayoutParams(params)
+        getJitsiView().setLayoutParams(params);
     }
 
     override fun onDestroy() {
