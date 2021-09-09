@@ -110,6 +110,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             weight = 1.0f
             gravity = Gravity.TOP
         }
+        window.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
     }
 
     override fun onUserLeaveHint() {
@@ -119,6 +120,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .setAspectRatio(Rational(16, 16))
                         .build()
         )
+        window.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
     }
 
     override fun onBackPressed() {
@@ -128,6 +130,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .setAspectRatio(Rational(16, 16))
                         .build()
         )
+        window.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
     }
 
     override fun onDestroy() {
