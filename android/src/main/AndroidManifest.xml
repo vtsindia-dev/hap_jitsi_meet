@@ -7,10 +7,11 @@
             android:launchMode="singleTask"
             android:resizeableActivity="true"
             android:supportsPictureInPicture="true"
+            android:fitsSystemWindows="true"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustResize">
-            <layout android:defaultHeight="500dp"
-                android:defaultWidth="600dp"
+            <layout android:defaultHeight="300dp"
+                android:defaultWidth="300dp"
                 android:gravity="top|end"/>
         </activity>
     </application>

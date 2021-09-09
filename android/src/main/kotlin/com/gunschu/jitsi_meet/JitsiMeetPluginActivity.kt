@@ -112,6 +112,19 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         }
     }
 
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        enterPictureInPictureMode(
+                Builder()
+                        .setAspectRatio(Rational(16, 16))
+                        .build()
+        )
+    }
+
+    override fun onBackPressed() {
+        onUserLeaveHint()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         turnScreenOffAndKeyguardOn();
