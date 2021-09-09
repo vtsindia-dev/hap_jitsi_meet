@@ -122,7 +122,12 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
     }
 
     override fun onBackPressed() {
-        onUserLeaveHint()
+//        onUserLeaveHint()
+        enterPictureInPictureMode(
+                Builder()
+                        .setAspectRatio(Rational(16, 16))
+                        .build()
+        )
     }
 
     override fun onDestroy() {
