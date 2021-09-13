@@ -16,8 +16,6 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
-import android.widget.LinearLayout
-import android.widget.LinearLayout.LayoutParams
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
@@ -111,13 +109,6 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
 //        surfaceView.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
         p.
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
-        val params = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply {
-            weight = 1.0f
-            gravity = Gravity.TOP
-        }
         window.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
     }
 
