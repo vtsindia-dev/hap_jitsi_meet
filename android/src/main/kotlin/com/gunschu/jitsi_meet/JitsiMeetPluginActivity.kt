@@ -4,6 +4,7 @@ import android.app.KeyguardManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.content.IntentFilter
 import android.content.res.Configuration
 import android.util.Rational
@@ -47,7 +48,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
         }
         else {
-            val surfaceView: SurfaceView = getSurfaceView()
+            val surfaceView: SurfaceView = getJitsiView()
             val p: ViewGroup.LayoutParams = surfaceView.getLayoutParams()
             p.width = dpToPx(newConfig.screenWidthDp)
             p.height = dpToPx(newConfig.screenHeightDp)
@@ -108,12 +109,10 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .setAspectRatio(Rational(16, 16))
                         .build()
         )
-        val surfaceView: SurfaceView = getSurfaceView()
+        val surfaceView: SurfaceView = getJitsiView()
         val p: ViewGroup.LayoutParams = surfaceView.getLayoutParams()
-        p.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
         surfaceView.setLayoutParams(p)
-//        surfaceView.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
-        p.
+        surfaceView.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
         window.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
     }
