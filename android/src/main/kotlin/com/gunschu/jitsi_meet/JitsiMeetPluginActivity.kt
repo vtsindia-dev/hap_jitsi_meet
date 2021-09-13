@@ -4,20 +4,18 @@ import android.app.KeyguardManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.content.IntentFilter
 import android.content.res.Configuration
 import android.util.Rational
 import android.app.PictureInPictureParams
 import android.app.PictureInPictureParams.Builder
-import android.view.SurfaceView
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams
 import android.view.Gravity
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
+import android.widget.LinearLayout
+import android.widget.LinearLayout.LayoutParams
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
 import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
@@ -48,11 +46,6 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
             JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
         }
         else {
-            val surfaceView: SurfaceView = getJitsiView()
-            val p: ViewGroup.LayoutParams = surfaceView.getLayoutParams()
-            p.width = dpToPx(newConfig.screenWidthDp)
-            p.height = dpToPx(newConfig.screenHeightDp)
-            surfaceView.setLayoutParams(p)
             JitsiMeetEventStreamHandler.instance.onPictureInPictureTerminated()
         }
 
@@ -109,11 +102,14 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .setAspectRatio(Rational(16, 16))
                         .build()
         )
-        val surfaceView: SurfaceView = getJitsiView()
-        val p: ViewGroup.LayoutParams = surfaceView.getLayoutParams()
-        surfaceView.setLayoutParams(p)
-        surfaceView.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+        val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            weight = 1.0f
+            gravity = Gravity.TOP
+        }
         window.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
     }
 
