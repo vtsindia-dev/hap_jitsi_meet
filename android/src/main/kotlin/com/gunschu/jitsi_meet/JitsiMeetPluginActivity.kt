@@ -10,6 +10,7 @@ import android.util.Rational
 import android.app.PictureInPictureParams
 import android.app.PictureInPictureParams.Builder
 import android.view.SurfaceView
+import android.widget.RelativeLayout.LayoutParams
 import android.view.Gravity
 import android.os.Build
 import android.os.Bundle
@@ -103,8 +104,12 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
                         .setAspectRatio(Rational(16, 16))
                         .build()
         )
-        val surfaceView: SurfaceView = getSurfaceView()
-        surfaceView.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
+        val surfaceView: SurfaceView = getJitsiView()
+        val p: RelativeLayout.LayoutParams = surfaceView.getLayoutParams()
+        p.addRule(RelativeLayout.ALIGN_PARENT_TOP)
+        surfaceView.setLayoutParams(p);
+//        surfaceView.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL)
+        p.
         JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
         val params = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
