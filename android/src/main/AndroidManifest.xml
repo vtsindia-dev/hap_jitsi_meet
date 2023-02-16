@@ -6,6 +6,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
             android:launchMode="singleTask"
             android:resizeableActivity="true"
+            android:exported="true"
             android:supportsPictureInPicture="true"
             android:fitsSystemWindows="true"
             android:theme="@android:style/Theme.NoTitleBar"
